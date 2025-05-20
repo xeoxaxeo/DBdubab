@@ -1,0 +1,95 @@
+import java.sql.*;
+
+public class PharmacyDAO {
+    private Connection conn;
+
+    public PharmacyDAO(Connection conn) {
+        this.conn = conn;
+    }
+
+    public void findActivePharmaciesNow() throws SQLException {
+        String sql = "SELECT p.pharmacy_id, p.name, p.address, p.phone " +
+                "FROM active_pharmacy p " +
+                "JOIN open_hours o ON p.pharmacy_id = o.pharmacy_id " +
+                "WHERE o.day_of_week = ? AND ? BETWEEN o.start_time AND o.end_time";
+
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            // 현재 요일과 시간 구하기
+            String currentDay = TimeUtil.getCurrentDayOfWeekKor();
+            String currentTime = TimeUtil.getCurrentTime();
+
+            pstmt.setString(1, currentDay);
+            pstmt.setString(2, currentTime);
+
+            try (ResultSet rs = pstmt.executeQuery()) {
+                while (rs.next()) {
+                    System.out.printf("약국ID: %s, 이름: %s, 주소: %s, 전화: %s%n",
+                            rs.getString("pharmacy_id"),
+                            rs.getString("name"),
+                            rs.getString("address"),
+                            rs.getString("phone"));
+                }
+            }
+        }
+    }
+    public void findActivePharmaciesByRegion(String regionKeyword) throws SQLException {
+        String sql = "SELECT p.pharmacy_id, p.name, p.address, p.phone " +
+                "FROM active_pharmacy p " +
+                "JOIN open_hours o ON p.pharmacy_id = o.pharmacy_id " +
+                "WHERE o.day_of_week = ? " +
+                "AND ? BETWEEN o.start_time AND o.end_time " +
+                "AND p.address LIKE ?";
+
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            String currentDay = TimeUtil.getCurrentDayOfWeekKor();
+            String currentTime = TimeUtil.getCurrentTime();
+
+            pstmt.setString(1, currentDay);
+            pstmt.setString(2, currentTime);
+            pstmt.setString(3, "%" + regionKeyword + "%");
+
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (!rs.isBeforeFirst()) {
+                    System.out.println("해당 시간과 지역에 운영 중인 약국을 찾지 못했습니다.");
+                    findNearbyEmergencyStores(regionKeyword);
+                    return;
+                }
+
+                System.out.println("\n운영 중인 약국 목록:");
+                while (rs.next()) {
+                    System.out.printf("약국ID: %s | 이름: %s | 주소: %s | 전화: %s%n",
+                            rs.getString("pharmacy_id"),
+                            rs.getString("name"),
+                            rs.getString("address"),
+                            rs.getString("phone"));
+                }
+            }
+        }
+    }
+
+    public void findNearbyEmergencyStores(String regionKeyword) throws SQLException {
+        String sql = "SELECT store_id, store_name, address, phone " +
+                "FROM emergency_store " +
+                "WHERE address LIKE ?";
+
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, "%" + regionKeyword + "%");
+
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (!rs.isBeforeFirst()) {
+                    System.out.println("해당 지역 근처에 편의점도 없습니다.");
+                    return;
+                }
+
+                System.out.println("\n근처 편의점 목록:");
+                while (rs.next()) {
+                    System.out.printf("편의점ID: %s | 이름: %s | 주소: %s | 전화: %s%n",
+                            rs.getString("store_id"),
+                            rs.getString("store_name"),
+                            rs.getString("address"),
+                            rs.getString("phone"));
+                }
+            }
+        }
+    }
+}
