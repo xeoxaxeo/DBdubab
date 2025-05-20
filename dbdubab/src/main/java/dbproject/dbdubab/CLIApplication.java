@@ -62,6 +62,27 @@ public class CLIApplication {
                         );
                     }
                 }
+                case "regionActive" -> {
+                    if (args.length < 2) {
+                        System.err.println("지역 키워드를 입력하세요.");
+                        printUsage();
+                        return;
+                    }
+                    String regionKeyword = args[1];
+                    System.out.printf("=== '%s' 지역에서 현재 운영 중인 약국 목록 조회 ===%n", regionKeyword);
+                    dao.findActivePharmaciesByRegion(regionKeyword);
+                    // 약국 없으면 편의점 목록까지 메서드 안에서 같이 출력됨
+                }
+                case "operatingRank" -> {
+                    if (args.length < 2) {
+                        System.err.println("지역 키워드를 입력하세요.");
+                        printUsage();
+                        return;
+                    }
+                    String regionKeyword = args[1];
+                    System.out.printf("=== '%s' 지역 약국 운영시간 순위 조회 ===%n", regionKeyword);
+                    dao.findPharmaciesByOperatingTimeWithRank(regionKeyword);
+                }
                 default -> {
                     System.err.println("지정되지 않은 action: " + action);
                     printUsage();
@@ -77,5 +98,7 @@ public class CLIApplication {
         System.out.println("Usage: java -jar DBdubab.jar <action> [parameters]");
         System.out.println("  active               → 운영 중인 약국 조회");
         System.out.println("  stats [minCount]     → 지역/요일별 약국 수 통계 (HAVING COUNT ≥ minCount)");
+        System.out.println("  regionActive <regionKeyword> → 지정한 지역에서 현재 운영 중인 약국 목록 조회 (없으면 편의점 목록 포함)");
+        System.out.println("  operatingRank <regionKeyword> → 지정한 지역 약국 운영시간 순위 조회");
     }
 }
