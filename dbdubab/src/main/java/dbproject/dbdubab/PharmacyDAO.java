@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Time;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PharmacyDAO {
 
@@ -43,6 +45,52 @@ public class PharmacyDAO {
                             rs.getString("phone")
                     );
                 }
+            }
+        }
+    }
+
+    // 지역/요일별 운영 약국 수 통계
+    // @param minCount: 최소 개수 기준. 기본은 1
+    public List<AreaDayStats> countByAreaAndDayWithNames(int minCount) throws SQLException {
+        String sql = """
+            SELECT
+              -- 1) 세 번째 토큰 뽑기 → 2) 앞 3글자만 취해서 area로
+              ANY_VALUE(
+                SUBSTRING_INDEX(
+                    SUBSTRING_INDEX(p.address, ' ', 3),
+                ' ', -1)
+              ) AS area,
+              o.day_of_week AS day,
+              COUNT(*) AS cnt,
+              GROUP_CONCAT(p.name ORDER BY p.name SEPARATOR ', ') AS names
+            FROM pharmacy p
+              JOIN open_hours o ON p.pharmacy_id = o.pharmacy_id
+            WHERE p.is_operating = TRUE
+            GROUP BY
+                SUBSTRING(
+                    SUBSTRING_INDEX(
+                        SUBSTRING_INDEX(p.address, ' ', 3),
+                    ' ', -1),
+                1, 3),
+                o.day_of_week
+            HAVING cnt >= ?
+            ORDER BY area ASC,
+                     FIELD(o.day_of_week, '월','화','수','목','금','토','일')
+            """;
+
+        try (PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, minCount);
+            try (ResultSet rs = ps.executeQuery()) {
+                List<AreaDayStats> list = new ArrayList<>();
+                while (rs.next()) {
+                    list.add(new AreaDayStats(
+                            rs.getString("area"),
+                            rs.getString("day"),
+                            rs.getInt("cnt"),
+                            rs.getString("names")
+                    ));
+                }
+                return list;
             }
         }
     }
