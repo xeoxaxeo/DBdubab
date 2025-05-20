@@ -93,37 +93,6 @@ public class PharmacyDAO {
         }
     }
 
-    public void findPharmaciesByOperatingTimeWithRank() throws SQLException {
-        String sql =
-                "SELECT RANK() OVER (ORDER BY SUM(TIME_TO_SEC(TIMEDIFF(o.end_time, o.start_time))) DESC) AS `rank`, " +
-                        "       p.pharmacy_id, p.name, p.address, p.phone, " +
-                        "       SEC_TO_TIME(SUM(TIME_TO_SEC(TIMEDIFF(o.end_time, o.start_time)))) AS total_operating_time " +
-                        "FROM active_pharmacy p " +
-                        "JOIN open_hours o ON p.pharmacy_id = o.pharmacy_id " +
-                        "GROUP BY p.pharmacy_id, p.name, p.address, p.phone " +
-                        "ORDER BY SUM(TIME_TO_SEC(TIMEDIFF(o.end_time, o.start_time))) DESC";
-
-        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            try (ResultSet rs = pstmt.executeQuery()) {
-                System.out.println("\n운영시간 순위 (전체):");
-                while (rs.next()) {
-                    int rank = rs.getInt("rank");
-                    String id = rs.getString("pharmacy_id");
-                    String name = rs.getString("name");
-                    String address = rs.getString("address");
-                    String phone = rs.getString("phone");
-                    String rawTime = rs.getString("total_operating_time"); // e.g. "74:30:00"
-
-                    String[] parts = rawTime.split(":");
-                    int hours = Integer.parseInt(parts[0]);
-                    int minutes = Integer.parseInt(parts[1]);
-
-                    System.out.printf("순위 %d | 약국ID: %s | 이름: %s | 주소: %s | 전화: %s | 총 운영시간: %d시간 %d분%n",
-                            rank, id, name, address, phone, hours, minutes);
-                }
-            }
-        }
-    }
     public void findPharmaciesByOperatingTimeWithRank(String regionKeyword) throws SQLException {
         String sql =
                 "SELECT RANK() OVER (ORDER BY SUM(TIME_TO_SEC(TIMEDIFF(o.end_time, o.start_time))) DESC) AS `rank`, " +
