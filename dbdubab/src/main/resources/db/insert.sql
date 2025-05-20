@@ -1246,13 +1246,9 @@ VALUES ('C1101196', '월', '09:00:00', '19:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1101196', '화', '08:00:00', '18:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
-VALUES ('C1101196', '수', '09:00:00', '18:00:00');
-INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1101196', '목', '09:00:00', '18:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1101196', '금', '08:00:00', '20:00:00');
-INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
-VALUES ('C1101196', '토', '09:00:00', '18:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1101196', '일', '10:00:00', '18:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
@@ -1266,15 +1262,11 @@ VALUES ('C1107809', '목', '10:00:00', '20:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1107809', '금', '08:00:00', '19:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
-VALUES ('C1107809', '토', '09:00:00', '18:00:00');
-INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1107809', '일', '10:00:00', '18:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1109777', '월', '10:00:00', '18:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1109777', '화', '09:00:00', '19:00:00');
-INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
-VALUES ('C1109777', '수', '09:00:00', '19:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1109777', '목', '09:00:00', '19:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
@@ -1500,8 +1492,6 @@ VALUES ('C1101864', '화', '09:00:00', '18:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1101864', '수', '09:00:00', '19:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
-VALUES ('C1101864', '목', '09:00:00', '20:00:00');
-INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1101864', '금', '08:00:00', '19:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1101864', '토', '10:00:00', '20:00:00');
@@ -1525,8 +1515,6 @@ INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1108777', '월', '09:00:00', '19:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1108777', '화', '09:00:00', '18:00:00');
-INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
-VALUES ('C1108777', '수', '10:00:00', '20:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1108777', '목', '10:00:00', '18:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
@@ -1561,8 +1549,6 @@ INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1110269', '금', '09:00:00', '20:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1110269', '토', '09:00:00', '19:00:00');
-INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
-VALUES ('C1110269', '일', '08:00:00', '18:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1101825', '월', '08:00:00', '19:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
@@ -1599,8 +1585,6 @@ INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1101827', '수', '08:00:00', '20:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1101827', '목', '10:00:00', '18:00:00');
-INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
-VALUES ('C1101827', '금', '08:00:00', '19:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1101827', '토', '10:00:00', '20:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
@@ -1713,8 +1697,6 @@ INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1103957', '목', '10:00:00', '20:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1103957', '금', '09:00:00', '19:00:00');
-INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
-VALUES ('C1103957', '토', '08:00:00', '20:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1103957', '일', '09:00:00', '19:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
@@ -1854,10 +1836,6 @@ VALUES ('C1110303', '목', '08:00:00', '20:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1110303', '금', '10:00:00', '20:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
-VALUES ('C1110303', '토', '09:00:00', '19:00:00');
-INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
-VALUES ('C1110303', '일', '09:00:00', '19:00:00');
-INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1107542', '월', '09:00:00', '20:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1107542', '화', '08:00:00', '19:00:00');
@@ -1878,10 +1856,6 @@ VALUES ('C1109306', '화', '10:00:00', '20:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1109306', '수', '10:00:00', '18:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
-VALUES ('C1109306', '목', '08:00:00', '18:00:00');
-INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
-VALUES ('C1109306', '금', '10:00:00', '19:00:00');
-INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1109306', '토', '08:00:00', '20:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1109306', '일', '08:00:00', '18:00:00');
@@ -1895,8 +1869,6 @@ INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1101660', '목', '08:00:00', '18:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1101660', '금', '09:00:00', '20:00:00');
-INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
-VALUES ('C1101660', '토', '10:00:00', '18:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1101660', '일', '10:00:00', '19:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
@@ -1913,8 +1885,6 @@ INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1108654', '토', '08:00:00', '19:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1108654', '일', '09:00:00', '19:00:00');
-INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
-VALUES ('C1109270', '월', '09:00:00', '19:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1109270', '화', '10:00:00', '19:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
@@ -1958,15 +1928,9 @@ VALUES ('C1101410', '일', '08:00:00', '20:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1100139', '월', '09:00:00', '18:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
-VALUES ('C1100139', '화', '09:00:00', '20:00:00');
-INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1100139', '수', '10:00:00', '18:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1100139', '목', '09:00:00', '19:00:00');
-INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
-VALUES ('C1100139', '금', '09:00:00', '18:00:00');
-INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
-VALUES ('C1100139', '토', '08:00:00', '19:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1100139', '일', '08:00:00', '20:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
@@ -2038,27 +2002,17 @@ VALUES ('C1101178', '금', '10:00:00', '18:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1101178', '토', '10:00:00', '20:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
-VALUES ('C1101178', '일', '09:00:00', '18:00:00');
-INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1107591', '월', '09:00:00', '19:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1107591', '화', '09:00:00', '20:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1107591', '수', '10:00:00', '19:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
-VALUES ('C1107591', '목', '10:00:00', '20:00:00');
-INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
-VALUES ('C1107591', '금', '10:00:00', '19:00:00');
-INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1107591', '토', '09:00:00', '20:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1107591', '일', '10:00:00', '18:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
-VALUES ('C1107448', '월', '10:00:00', '18:00:00');
-INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1107448', '화', '10:00:00', '18:00:00');
-INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
-VALUES ('C1107448', '수', '08:00:00', '18:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1107448', '목', '09:00:00', '19:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
@@ -2080,8 +2034,6 @@ VALUES ('C1102863', '금', '08:00:00', '19:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1102863', '토', '09:00:00', '20:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
-VALUES ('C1102863', '일', '08:00:00', '18:00:00');
-INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1103877', '월', '09:00:00', '19:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1103877', '화', '10:00:00', '20:00:00');
@@ -2095,8 +2047,6 @@ INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1103877', '토', '09:00:00', '19:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1103877', '일', '08:00:00', '19:00:00');
-INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
-VALUES ('C1104879', '월', '09:00:00', '20:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1104879', '화', '08:00:00', '20:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
@@ -2146,8 +2096,6 @@ VALUES ('C1110544', '수', '09:00:00', '19:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1110544', '목', '08:00:00', '18:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
-VALUES ('C1110544', '금', '09:00:00', '19:00:00');
-INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1110544', '토', '09:00:00', '19:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1110544', '일', '10:00:00', '18:00:00');
@@ -2161,8 +2109,6 @@ INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1108511', '목', '10:00:00', '18:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1108511', '금', '09:00:00', '18:00:00');
-INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
-VALUES ('C1108511', '토', '10:00:00', '19:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1108511', '일', '10:00:00', '20:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
@@ -2230,10 +2176,6 @@ VALUES ('C1101170', '수', '08:00:00', '18:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1101170', '목', '10:00:00', '19:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
-VALUES ('C1101170', '금', '08:00:00', '20:00:00');
-INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
-VALUES ('C1101170', '토', '09:00:00', '18:00:00');
-INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1101170', '일', '09:00:00', '18:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1108483', '월', '09:00:00', '18:00:00');
@@ -2269,8 +2211,6 @@ INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1104481', '화', '08:00:00', '20:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1104481', '수', '10:00:00', '20:00:00');
-INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
-VALUES ('C1104481', '목', '10:00:00', '19:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1104481', '금', '10:00:00', '20:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
@@ -2398,8 +2338,6 @@ VALUES ('C1102373', '수', '09:00:00', '20:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1102373', '목', '08:00:00', '20:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
-VALUES ('C1102373', '금', '08:00:00', '18:00:00');
-INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1102373', '토', '09:00:00', '18:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1102373', '일', '10:00:00', '20:00:00');
@@ -2469,10 +2407,6 @@ INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1107450', '목', '10:00:00', '19:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1107450', '금', '08:00:00', '18:00:00');
-INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
-VALUES ('C1107450', '토', '10:00:00', '20:00:00');
-INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
-VALUES ('C1107450', '일', '09:00:00', '18:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1103294', '월', '10:00:00', '20:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
@@ -2629,8 +2563,6 @@ INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1100833', '일', '10:00:00', '20:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1106969', '월', '09:00:00', '18:00:00');
-INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
-VALUES ('C1106969', '화', '08:00:00', '20:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1106969', '수', '08:00:00', '20:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
@@ -2862,8 +2794,6 @@ VALUES ('C1103072', '목', '10:00:00', '19:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1103072', '금', '10:00:00', '20:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
-VALUES ('C1103072', '토', '10:00:00', '18:00:00');
-INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1103072', '일', '09:00:00', '20:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1100681', '월', '10:00:00', '20:00:00');
@@ -2871,8 +2801,6 @@ INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1100681', '화', '08:00:00', '18:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1100681', '수', '08:00:00', '18:00:00');
-INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
-VALUES ('C1100681', '목', '10:00:00', '20:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1100681', '금', '09:00:00', '18:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
@@ -2914,13 +2842,9 @@ VALUES ('C1103053', '화', '10:00:00', '19:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1103053', '수', '09:00:00', '20:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
-VALUES ('C1103053', '목', '10:00:00', '19:00:00');
-INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1103053', '금', '09:00:00', '19:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1103053', '토', '09:00:00', '19:00:00');
-INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
-VALUES ('C1103053', '일', '09:00:00', '18:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1110274', '월', '09:00:00', '20:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
@@ -2981,8 +2905,6 @@ INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1110007', '월', '09:00:00', '18:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1110007', '화', '10:00:00', '20:00:00');
-INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
-VALUES ('C1110007', '수', '08:00:00', '20:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1110007', '목', '09:00:00', '20:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
@@ -3212,8 +3134,6 @@ VALUES ('C1101323', '목', '10:00:00', '20:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1101323', '금', '08:00:00', '20:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
-VALUES ('C1101323', '토', '09:00:00', '20:00:00');
-INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1101323', '일', '10:00:00', '20:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1109795', '월', '09:00:00', '19:00:00');
@@ -3276,10 +3196,6 @@ VALUES ('C1109271', '월', '10:00:00', '20:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1109271', '화', '08:00:00', '20:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
-VALUES ('C1109271', '수', '09:00:00', '18:00:00');
-INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
-VALUES ('C1109271', '목', '10:00:00', '19:00:00');
-INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1109271', '금', '10:00:00', '18:00:00');
 INSERT INTO open_hours (pharmacy_id, day_of_week, start_time, end_time)
 VALUES ('C1109271', '토', '08:00:00', '19:00:00');
@@ -3330,15 +3246,15 @@ VALUES ('C1100273', '일', '08:00:00', '20:00:00');
 
 -- holiday_schedule 테이블 삽입
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1108747', FALSE, TRUE);
+VALUES ('C1108747', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1108766', FALSE, TRUE);
+VALUES ('C1108766', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1107045', FALSE, FALSE);
+VALUES ('C1107045', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1107449', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1102079', FALSE, TRUE);
+VALUES ('C1102079', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1109267', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
@@ -3354,43 +3270,43 @@ VALUES ('C1107446', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1110273', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1109086', FALSE, TRUE);
+VALUES ('C1109086', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1101535', FALSE, FALSE);
+VALUES ('C1101535', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1101734', FALSE, FALSE);
+VALUES ('C1101734', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1101273', FALSE, FALSE);
+VALUES ('C1101273', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1101332', FALSE, FALSE);
+VALUES ('C1101332', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1101023', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1109385', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1102017', FALSE, TRUE);
+VALUES ('C1102017', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1108641', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1110535', FALSE, FALSE);
+VALUES ('C1110535', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1108944', FALSE, TRUE);
+VALUES ('C1108944', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1100569', FALSE, TRUE);
+VALUES ('C1100569', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1109387', FALSE, FALSE);
+VALUES ('C1109387', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1101864', FALSE, TRUE);
+VALUES ('C1101864', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1104627', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1108777', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1110382', FALSE, FALSE);
+VALUES ('C1110382', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1110269', FALSE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1101825', FALSE, FALSE);
+VALUES ('C1101825', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1107920', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
@@ -3404,13 +3320,13 @@ VALUES ('C1109305', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1103089', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1110285', FALSE, TRUE);
+VALUES ('C1110285', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1102441', FALSE, FALSE);
+VALUES ('C1102441', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1107395', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1103957', FALSE, FALSE);
+VALUES ('C1103957', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1107180', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
@@ -3420,23 +3336,23 @@ VALUES ('C1101649', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1104715', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1104910', FALSE, TRUE);
+VALUES ('C1104910', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1103810', FALSE, FALSE);
+VALUES ('C1103810', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1102415', FALSE, TRUE);
+VALUES ('C1102415', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1104530', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1101447', FALSE, FALSE);
+VALUES ('C1101447', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1110303', FALSE, FALSE);
+VALUES ('C1110303', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1107542', FALSE, TRUE);
+VALUES ('C1107542', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1109306', FALSE, TRUE);
+VALUES ('C1109306', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1101660', FALSE, TRUE);
+VALUES ('C1101660', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1108654', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
@@ -3446,45 +3362,45 @@ VALUES ('C1104227', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1101410', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1100139', FALSE, TRUE);
+VALUES ('C1100139', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1102703', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1102995', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1103863', FALSE, FALSE);
+VALUES ('C1103863', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1107541', FALSE, FALSE);
+VALUES ('C1107541', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1101178', FALSE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1107591', FALSE, FALSE);
+VALUES ('C1107591', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1107448', FALSE, TRUE);
+VALUES ('C1107448', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1102863', FALSE, TRUE);
+VALUES ('C1102863', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1103877', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1104879', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1101287', FALSE, TRUE);
+VALUES ('C1101287', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1101121', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1110544', FALSE, TRUE);
+VALUES ('C1110544', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1108511', FALSE, TRUE);
+VALUES ('C1108511', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1109871', FALSE, FALSE);
+VALUES ('C1109871', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1109904', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1107811', FALSE, FALSE);
+VALUES ('C1107811', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1107004', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1101170', FALSE, TRUE);
+VALUES ('C1101170', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1108483', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
@@ -3494,150 +3410,163 @@ VALUES ('C1104481', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1104040', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1110304', FALSE, TRUE);
+VALUES ('C1110304', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1102483', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1109870', FALSE, FALSE);
+VALUES ('C1109870', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1109389', FALSE, FALSE);
+VALUES ('C1109389', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1102404', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1104862', FALSE, TRUE);
+VALUES ('C1104862', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1102893', FALSE, TRUE);
+VALUES ('C1102893', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1102373', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1110276', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1108616', FALSE, TRUE);
+VALUES ('C1108616', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1101250', FALSE, TRUE);
+VALUES ('C1101250', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1103931', FALSE, TRUE);
+VALUES ('C1103931', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1107450', FALSE, FALSE);
+VALUES ('C1107450', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1103294', FALSE, TRUE);
+VALUES ('C1103294', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1107593', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1109431', FALSE, TRUE);
+VALUES ('C1109431', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1110460', FALSE, TRUE);
+VALUES ('C1110460', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1108651', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1110006', FALSE, TRUE);
+VALUES ('C1110006', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1107594', FALSE, TRUE);
+VALUES ('C1107594', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1108945', FALSE, FALSE);
+VALUES ('C1108945', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1109268', FALSE, TRUE);
+VALUES ('C1109268', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1100789', FALSE, FALSE);
+VALUES ('C1100789', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1100833', FALSE, FALSE);
+VALUES ('C1100833', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1106969', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1100607', FALSE, FALSE);
+VALUES ('C1100607', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1107799', FALSE, FALSE);
+VALUES ('C1107799', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1103772', FALSE, FALSE);
+VALUES ('C1103772', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1102559', FALSE, TRUE);
+VALUES ('C1102559', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1102578', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1109665', FALSE, FALSE);
+VALUES ('C1109665', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1100448', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1100447', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1104623', FALSE, FALSE);
+VALUES ('C1104623', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1109968', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1102512', FALSE, FALSE);
+VALUES ('C1102512', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1107178', FALSE, FALSE);
+VALUES ('C1107178', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1109944', FALSE, TRUE);
+VALUES ('C1109944', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1109102', FALSE, TRUE);
+VALUES ('C1109102', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1108261', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1103072', FALSE, FALSE);
+VALUES ('C1103072', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1100681', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1100417', FALSE, FALSE);
+VALUES ('C1100417', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1104376', FALSE, TRUE);
+VALUES ('C1104376', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1103053', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1110274', FALSE, FALSE);
+VALUES ('C1110274', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1100413', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1104780', FALSE, FALSE);
+VALUES ('C1104780', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1103208', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1110007', FALSE, FALSE);
+VALUES ('C1110007', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1107913', FALSE, TRUE);
+VALUES ('C1107913', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1109190', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1108946', FALSE, FALSE);
+VALUES ('C1108946', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1100105', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1107915', FALSE, FALSE);
+VALUES ('C1107915', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1100144', FALSE, TRUE);
+VALUES ('C1100144', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1109269', FALSE, FALSE);
+VALUES ('C1109269', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1100532', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1102185', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1100418', FALSE, FALSE);
+VALUES ('C1100418', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1104626', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1109386', FALSE, FALSE);
+VALUES ('C1109386', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1103322', FALSE, TRUE);
+VALUES ('C1103322', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1109391', FALSE, FALSE);
+VALUES ('C1109391', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1100653', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1101323', FALSE, FALSE);
+VALUES ('C1101323', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1109795', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1109883', FALSE, FALSE);
+VALUES ('C1109883', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1104038', FALSE, FALSE);
+VALUES ('C1104038', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1109756', TRUE, TRUE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1109271', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1100186', FALSE, FALSE);
+VALUES ('C1100186', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
-VALUES ('C1100195', FALSE, FALSE);
+VALUES ('C1100195', TRUE, FALSE);
 INSERT INTO holiday_schedule (pharmacy_id, is_open_sunday, is_open_holiday)
 VALUES ('C1100273', TRUE, TRUE);
+
+-- 일요일 운영 데이터 일관성 업데이트
+UPDATE holiday_schedule hs
+SET is_open_sunday = TRUE
+WHERE hs.pharmacy_id IN (
+    SELECT pharmacy_id FROM open_hours WHERE day_of_week = '일'
+);
+
+UPDATE holiday_schedule hs
+SET is_open_sunday = FALSE
+WHERE hs.pharmacy_id NOT IN (
+    SELECT pharmacy_id FROM open_hours WHERE day_of_week = '일'
+);
