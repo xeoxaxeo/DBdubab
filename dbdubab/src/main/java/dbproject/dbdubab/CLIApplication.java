@@ -13,7 +13,7 @@ public class CLIApplication {
 
     // 로컬 환경에 맞게 설정
     private static final String USER = "root";
-    private static final String PASS = "1475";
+    private static final String PASS = "0000";
 
     public static void main(String[] args) {
         if (args.length == 0) {
