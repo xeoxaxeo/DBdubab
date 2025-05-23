@@ -13,7 +13,7 @@ public class CLIApplication {
 
     // 로컬 환경에 맞게 설정
     private static final String USER = "root";
-    private static final String PASS = "0000";
+    private static final String PASS = "1475";
 
     public static void main(String[] args) {
         if (args.length == 0) {
@@ -62,6 +62,19 @@ public class CLIApplication {
                         );
                     }
                 }
+                case "detail" -> {
+                	if (args.length < 2) {
+                        System.out.println("약국 ID 입력: ");
+                        return;
+                    }
+                	String pharmacyId = args[1];
+                    System.out.println("=== 약국 상세 정보 ===");
+                    dao.getPharmacyDetails(pharmacyId);
+                }
+                case "longhours" -> {
+                    System.out.println("=== 평균 운영시간보다 긴 약국 목록 ===");
+                	dao.getLongOperatingPharmacies();
+                }
                 default -> {
                     System.err.println("지정되지 않은 action: " + action);
                     printUsage();
@@ -77,5 +90,7 @@ public class CLIApplication {
         System.out.println("Usage: java -jar DBdubab.jar <action> [parameters]");
         System.out.println("  active               → 운영 중인 약국 조회");
         System.out.println("  stats [minCount]     → 지역/요일별 약국 수 통계 (HAVING COUNT ≥ minCount)");
+        System.out.println("  detail <pharmacyId>  → 약국 상세 정보 조회");
+        System.out.println("  longhours  		   → 평균 운영시간보다 오래 여는 약국");
     }
 }
