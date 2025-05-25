@@ -83,6 +83,19 @@ public class CLIApplication {
                     System.out.printf("=== '%s' 지역 약국 운영시간 순위 조회 ===%n", regionKeyword);
                     dao.findPharmaciesByOperatingTimeWithRank(regionKeyword);
                 }
+                case "detail" -> {
+                    if (args.length < 2) {
+                        System.out.println("약국 ID 입력: ");
+                        return;
+                    }
+                    String pharmacyId = args[1];
+                    System.out.println("=== 약국 상세 정보 ===");
+                    dao.getPharmacyDetails(pharmacyId);
+                }
+                case "longhours" -> {
+                    System.out.println("=== 평균 운영시간보다 긴 약국 목록 ===");
+                    dao.getLongOperatingPharmacies();
+                }
                 default -> {
                     System.err.println("지정되지 않은 action: " + action);
                     printUsage();
@@ -100,5 +113,7 @@ public class CLIApplication {
         System.out.println("  stats [minCount]     → 지역/요일별 약국 수 통계 (HAVING COUNT ≥ minCount)");
         System.out.println("  regionActive <regionKeyword> → 지정한 지역에서 현재 운영 중인 약국 목록 조회 (없으면 편의점 목록 포함)");
         System.out.println("  operatingRank <regionKeyword> → 지정한 지역 약국 운영시간 순위 조회");
+        System.out.println("  detail <pharmacyId>  → 약국 상세 정보 조회");
+        System.out.println("  longhours  		   → 평균 운영시간보다 오래 여는 약국");
     }
 }
