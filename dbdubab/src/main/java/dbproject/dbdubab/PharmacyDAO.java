@@ -94,4 +94,91 @@ public class PharmacyDAO {
             }
         }
     }
+
+    // 약국 상세 정보 조회
+    public void getPharmacyDetails(String pharmacyId) throws SQLException{
+        String sql1 = "SELECT pharmacy_id, name, address, phone, zip_code, longitude, latitude " +
+                "FROM pharmacy WHERE pharmacy_id = ?";
+        String sql2 = "SELECT day_of_week, start_time, end_time " +
+                "FROM open_hours WHERE pharmacy_id = ? " +
+                "ORDER BY FIELD(day_of_week, '월', '화', '수', '목', '금', '토', '일')";
+        String sql3 = "SELECT is_open_sunday, is_open_holiday FROM holiday_schedule WHERE pharmacy_id = ?";
+
+        try (PreparedStatement pstmt = conn.prepareStatement(sql1)) {
+            pstmt.setString(1, pharmacyId);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    System.out.printf("약국ID: %s\n이름: %s\n주소: %s\n전화: %s\n우편번호: %s\n위도: %.6f\n경도: %.6f\n",
+                            rs.getString("pharmacy_id"),
+                            rs.getString("name"),
+                            rs.getString("address"),
+                            rs.getString("phone"),
+                            rs.getString("zip_code"),
+                            rs.getDouble("latitude"),
+                            rs.getDouble("longitude"));
+                } else {
+                    System.out.println("해당 ID의 약국을 찾을 수 없습니다.");
+                    return;
+                }
+            }
+        }
+
+        try (PreparedStatement pstmt = conn.prepareStatement(sql2)) {
+            pstmt.setString(1, pharmacyId);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                System.out.println("\n요일별 운영 시간:");
+                while (rs.next()) {
+                    System.out.printf("- %s: %s ~ %s\n",
+                            rs.getString("day_of_week"),
+                            rs.getString("start_time"),
+                            rs.getString("end_time"));
+                }
+            }
+        }
+
+        try (PreparedStatement pstmt = conn.prepareStatement(sql3)) {
+            pstmt.setString(1, pharmacyId);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    String sunday = rs.getBoolean("is_open_sunday") ? "운영" : "미운영";
+                    String holiday = rs.getBoolean("is_open_holiday") ? "운영" : "미운영";
+                    System.out.println("\n휴일 운영 여부:");
+                    System.out.printf("- 일요일: %s\n- 공휴일: %s\n", sunday, holiday);
+                } else {
+                    System.out.println("\n(휴일 운영 정보가 없습니다.)");
+                }
+            }
+        }
+    }
+    public void getLongOperatingPharmacies() throws SQLException {
+        String sql = """
+            SELECT p.pharmacy_id, p.name, p.address,
+                   SEC_TO_TIME(SUM(TIME_TO_SEC(TIMEDIFF(o.end_time, o.start_time)))) AS total_hours
+            FROM pharmacy p
+            JOIN open_hours o ON p.pharmacy_id = o.pharmacy_id
+            WHERE p.is_operating = TRUE
+            GROUP BY p.pharmacy_id, p.name, p.address
+            HAVING SUM(TIME_TO_SEC(TIMEDIFF(o.end_time, o.start_time))) >
+                   (
+                     SELECT AVG(total_duration) FROM (
+                        SELECT SUM(TIME_TO_SEC(TIMEDIFF(end_time, start_time))) AS total_duration
+                        FROM open_hours
+                        GROUP BY pharmacy_id
+                     ) AS avg_table
+                   )
+            ORDER BY total_hours DESC
+            """;
+
+        try (PreparedStatement ps = conn.prepareStatement(sql)) {
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    System.out.printf("약국ID: %s | 이름: %s | 주소: %s | 총 운영시간: %s%n",
+                            rs.getString("pharmacy_id"),
+                            rs.getString("name"),
+                            rs.getString("address"),
+                            rs.getString("total_hours"));
+                }
+            }
+        }
+    }
 }
