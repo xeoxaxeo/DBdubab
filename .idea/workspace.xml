@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d29ec0c7-4a5e-4900-aafa-558268685c02" name="Changes" comment="" />
+    <list default="true" id="d29ec0c7-4a5e-4900-aafa-558268685c02" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CLIApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmergencyManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/dbdubab/src/main/java/dbproject/dbdubab/EmergencyManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PharmacyManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/dbdubab/src/main/java/dbproject/dbdubab/PharmacyManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RollupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/dbdubab/src/main/java/dbproject/dbdubab/RollupManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbdubab/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/dbdubab/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbdubab/src/main/java/dbproject/dbdubab/CLIApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/dbdubab/src/main/java/dbproject/dbdubab/CLIApplication.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -76,21 +85,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.dbdubab [:CLIApplication.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.dbdubab [:DbdubabApplication.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.dbdubab [run].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.dbdubab [wrapper].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;jayeong&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/admini/InteliJ-workspace/dbdubab&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.dbdubab [:CLIApplication.main()].executor": "Run",
+    "Gradle.dbdubab [:DbdubabApplication.main()].executor": "Run",
+    "Gradle.dbdubab [run].executor": "Run",
+    "Gradle.dbdubab [wrapper].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/admini/InteliJ-workspace/dbdubab/dbdubab/libs",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.21679688",
+    "project.structure.side.proportion": "0.14124294",
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\admini\InteliJ-workspace\dbdubab\dbdubab\libs" />
+      <recent name="C:\Users\admini\InteliJ-workspace\dbdubab\dbdubab\build\libs" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\admini\InteliJ-workspace\dbdubab\dbdubab\src\main\java\dbproject\dbdubab" />
       <recent name="C:\Users\admini\InteliJ-workspace\dbdubab\dbdubab\src\main\resources\db" />
     </key>
   </component>

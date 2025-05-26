@@ -5,13 +5,17 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.List;
 
+import dbproject.dbdubab.PharmacyDAO;
+import dbproject.dbdubab.AreaDayStats;
+import dbproject.dbdubab.EmergencyManager;
+import dbproject.dbdubab.PharmacyManager;
+import dbproject.dbdubab.RollupManager;
+
 public class CLIApplication {
     private static final String URL = "jdbc:mysql://localhost:3306/db_project"
             + "?useUnicode=true"
             + "&characterEncoding=UTF-8"
             + "&serverTimezone=Asia/Seoul";
-
-    // 로컬 환경에 맞게 설정
     private static final String USER = "root";
     private static final String PASS = "0000";
 
@@ -21,8 +25,6 @@ public class CLIApplication {
             return;
         }
 
-        String action = args[0];
-
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
@@ -30,78 +32,96 @@ public class CLIApplication {
             return;
         }
 
+        String action = args[0];
         try (Connection conn = DriverManager.getConnection(URL, USER, PASS)) {
-            PharmacyDAO dao = new PharmacyDAO(conn);
-
-            // case에 기능 추가
             switch (action) {
                 case "active" -> {
                     System.out.println("=== 현재 운영 중인 서대문구 약국 목록 조회 ===");
-                    dao.findActivePharmaciesNow();
+                    new PharmacyDAO(conn).findActivePharmaciesNow();
                 }
                 case "stats" -> {
                     int minCount = 1;
                     if (args.length >= 2) {
                         try {
                             minCount = Integer.parseInt(args[1]);
-                        } catch (NumberFormatException ex) {
+                        } catch (NumberFormatException e) {
                             System.err.println("minCount는 정수여야 합니다. 기본값 1 사용.");
                         }
                     }
                     System.out.printf("=== 지역/요일별 운영 약국 수 통계 (minCount ≥ %d) ===%n", minCount);
-
-                    List<AreaDayStats> stats = dao.countByAreaAndDayWithNames(minCount);
-
-                    // 표 헤더
+                    List<AreaDayStats> stats = new PharmacyDAO(conn).countByAreaAndDayWithNames(minCount);
                     System.out.printf("%-10s | %-2s | %4s | %s%n", "지역", "요일", "개수", "약국이름");
                     System.out.println("-----------+------+----+-----------------------------");
-                    // 데이터 출력
                     for (AreaDayStats r : stats) {
                         System.out.printf("%-10s | %-2s | %4d | %s%n",
-                                r.getArea(), r.getDay(), r.getCount(), r.getNames()
-                        );
+                                r.getArea(), r.getDay(), r.getCount(), r.getNames());
                     }
                 }
                 case "regionActive" -> {
                     if (args.length < 2) {
                         System.err.println("지역 키워드를 입력하세요.");
                         printUsage();
-                        return;
+                    } else {
+                        String regionKeyword = args[1];
+                        System.out.printf("=== '%s' 지역에서 현재 운영 중인 약국 목록 조회 ===%n", regionKeyword);
+                        new PharmacyDAO(conn).findActivePharmaciesByRegion(regionKeyword);
                     }
-                    String regionKeyword = args[1];
-                    System.out.printf("=== '%s' 지역에서 현재 운영 중인 약국 목록 조회 ===%n", regionKeyword);
-                    dao.findActivePharmaciesByRegion(regionKeyword);
-                    // 약국 없으면 편의점 목록까지 메서드 안에서 같이 출력됨
                 }
                 case "operatingRank" -> {
                     if (args.length < 2) {
                         System.err.println("지역 키워드를 입력하세요.");
                         printUsage();
-                        return;
+                    } else {
+                        String regionKeyword = args[1];
+                        System.out.printf("=== '%s' 지역 약국 운영시간 순위 조회 ===%n", regionKeyword);
+                        new PharmacyDAO(conn).findPharmaciesByOperatingTimeWithRank(regionKeyword);
                     }
-                    String regionKeyword = args[1];
-                    System.out.printf("=== '%s' 지역 약국 운영시간 순위 조회 ===%n", regionKeyword);
-                    dao.findPharmaciesByOperatingTimeWithRank(regionKeyword);
                 }
                 case "detail" -> {
                     if (args.length < 2) {
-                        System.out.println("약국 ID 입력: ");
-                        return;
+                        System.err.println("약국 ID를 입력하세요.");
+                        printUsage();
+                    } else {
+                        String pharmacyId = args[1];
+                        System.out.println("=== 약국 상세 정보 ===");
+                        new PharmacyDAO(conn).getPharmacyDetails(pharmacyId);
                     }
-                    String pharmacyId = args[1];
-                    System.out.println("=== 약국 상세 정보 ===");
-                    dao.getPharmacyDetails(pharmacyId);
                 }
                 case "longhours" -> {
                     System.out.println("=== 평균 운영시간보다 긴 약국 목록 ===");
-                    dao.getLongOperatingPharmacies();
+                    new PharmacyDAO(conn).getLongOperatingPharmacies();
+                }
+                case "rollup" -> {
+                    System.out.println("=== [지역+요일] 기준 다차원 약국 집계 ===");
+                    new RollupManager(conn).showRegionDayRollup();
+                }
+                case "emergency-insert" -> {
+                    new EmergencyManager(conn)
+                            .createEmergencyStore("PHMH1234", "GS_TEST", "서울특별시 테스트구 테스트길", "02-123-4567", 123f, 456f);
+                }
+                case "emergency-update" -> {
+                    new EmergencyManager(conn)
+                            .updateEmergencyStore("PHMH1234", "GS_UPDATE", "서울특별시 업데이트구 업데이트길", "02-987-6543", 456f, 123f);
+                }
+                case "emergency-delete" -> {
+                    new EmergencyManager(conn).deleteEmergencyStore("PHMH1234");
+                }
+                case "pharmacy-insert" -> {
+                    new PharmacyManager(conn)
+                            .createPharmacy("P0001", "테스트약국", "서울특별시 테스트로 123", "02-1111-2222", "12345", 127.001f, 37.123f, true);
+                }
+                case "pharmacy-update" -> {
+                    new PharmacyManager(conn)
+                            .updatePharmacy("P0001", "업데이트약국", "서울특별시 업데이트로 456", "02-9999-8888", "54321", 127.100f, 37.200f, true);
+                }
+                case "pharmacy-delete" -> {
+                    new PharmacyManager(conn).deletePharmacy("P0001");
                 }
                 default -> {
                     System.err.println("지정되지 않은 action: " + action);
                     printUsage();
                 }
             }
-
         } catch (SQLException e) {
             System.err.println("DB 오류: " + e.getMessage());
         }
@@ -111,9 +131,16 @@ public class CLIApplication {
         System.out.println("Usage: java -jar DBdubab.jar <action> [parameters]");
         System.out.println("  active               → 운영 중인 약국 조회");
         System.out.println("  stats [minCount]     → 지역/요일별 약국 수 통계 (HAVING COUNT ≥ minCount)");
-        System.out.println("  regionActive <regionKeyword> → 지정한 지역에서 현재 운영 중인 약국 목록 조회 (없으면 편의점 목록 포함)");
-        System.out.println("  operatingRank <regionKeyword> → 지정한 지역 약국 운영시간 순위 조회");
+        System.out.println("  regionActive <region> → 지정 지역 운영 약국 조회 (없으면 편의점 목록 출력)");
+        System.out.println("  operatingRank <region> → 운영시간 순위 조회");
         System.out.println("  detail <pharmacyId>  → 약국 상세 정보 조회");
-        System.out.println("  longhours  		   → 평균 운영시간보다 오래 여는 약국");
+        System.out.println("  longhours            → 평균 운영시간보다 긴 약국 조회");
+        System.out.println("  rollup               → [지역+요일] 다차원 집계");
+        System.out.println("  emergency-insert     → 응급약국 등록");
+        System.out.println("  emergency-update     → 응급약국 수정");
+        System.out.println("  emergency-delete     → 응급약국 삭제");
+        System.out.println("  pharmacy-insert      → 약국 등록");
+        System.out.println("  pharmacy-update      → 약국 수정");
+        System.out.println("  pharmacy-delete      → 약국 삭제");
     }
 }
