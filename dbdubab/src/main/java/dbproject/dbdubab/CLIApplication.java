@@ -96,32 +96,68 @@ public class CLIApplication {
                     new RollupManager(conn).showRegionDayRollup();
                 }
                 case "emergency-insert" -> {
-                    new EmergencyManager(conn)
-                            .createEmergencyStore("PHMH1234", "GS_TEST", "서울특별시 테스트구 테스트길", "02-123-4567", 123f, 456f);
+                    if (args.length != 7) {
+                        System.out.println("사용법: emergency-insert <id> <name> <address> <phone> <longitude> <latitude>");
+                        break;
+                    }
+                    new EmergencyManager(conn).createEmergencyStore(
+                            args[1], args[2], args[3], args[4],
+                            Float.parseFloat(args[5]), Float.parseFloat(args[6])
+                    );
                 }
                 case "emergency-update" -> {
-                    new EmergencyManager(conn)
-                            .updateEmergencyStore("PHMH1234", "GS_UPDATE", "서울특별시 업데이트구 업데이트길", "02-987-6543", 456f, 123f);
+                    if (args.length != 7) {
+                        System.out.println("사용법: emergency-update <id> <name> <address> <phone> <longitude> <latitude>");
+                        break;
+                    }
+                    new EmergencyManager(conn).updateEmergencyStore(
+                            args[1], args[2], args[3], args[4],
+                            Float.parseFloat(args[5]), Float.parseFloat(args[6])
+                    );
                 }
                 case "emergency-delete" -> {
-                    new EmergencyManager(conn).deleteEmergencyStore("PHMH1234");
+                    if (args.length != 2) {
+                        System.out.println("사용법: emergency-delete <id>");
+                        break;
+                    }
+                    new EmergencyManager(conn).deleteEmergencyStore(args[1]);
                 }
                 case "pharmacy-insert" -> {
-                    new PharmacyManager(conn)
-                            .createPharmacy("P0001", "테스트약국", "서울특별시 테스트로 123", "02-1111-2222", "12345", 127.001f, 37.123f, true);
+                    if (args.length != 9) {
+                        System.out.println("사용법: pharmacy-insert <id> <name> <address> <phone> <zipcode> <longitude> <latitude> <isOperating>");
+                        break;
+                    }
+                    new PharmacyManager(conn).createPharmacy(
+                            args[1], args[2], args[3], args[4], args[5],
+                            Float.parseFloat(args[6]), Float.parseFloat(args[7]),
+                            Boolean.parseBoolean(args[8])
+                    );
                 }
                 case "pharmacy-update" -> {
-                    new PharmacyManager(conn)
-                            .updatePharmacy("P0001", "업데이트약국", "서울특별시 업데이트로 456", "02-9999-8888", "54321", 127.100f, 37.200f, true);
+                    if (args.length != 9) {
+                        System.out.println("사용법: pharmacy-update <id> <name> <address> <phone> <zipcode> <longitude> <latitude> <isOperating>");
+                        break;
+                    }
+                    new PharmacyManager(conn).updatePharmacy(
+                            args[1], args[2], args[3], args[4], args[5],
+                            Float.parseFloat(args[6]), Float.parseFloat(args[7]),
+                            Boolean.parseBoolean(args[8])
+                    );
                 }
                 case "pharmacy-delete" -> {
-                    new PharmacyManager(conn).deletePharmacy("P0001");
+                    if (args.length != 2) {
+                        System.out.println("사용법: pharmacy-delete <id>");
+                        break;
+                    }
+                    new PharmacyManager(conn).deletePharmacy(args[1]);
                 }
+                    
                 default -> {
                     System.err.println("지정되지 않은 action: " + action);
                     printUsage();
                 }
             }
+            
         } catch (SQLException e) {
             System.err.println("DB 오류: " + e.getMessage());
         }
@@ -135,7 +171,7 @@ public class CLIApplication {
         System.out.println("  operatingRank <region> → 운영시간 순위 조회");
         System.out.println("  detail <pharmacyId>  → 약국 상세 정보 조회");
         System.out.println("  longhours            → 평균 운영시간보다 긴 약국 조회");
-        System.out.println("  rollup               → [지역+요일] 다차원 집계");
+        System.out.println("  rollup               → [ 지역+요일 ] 다차원 집계");
         System.out.println("  emergency-insert     → 응급약국 등록");
         System.out.println("  emergency-update     → 응급약국 수정");
         System.out.println("  emergency-delete     → 응급약국 삭제");
