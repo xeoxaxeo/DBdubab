@@ -1,11 +1,8 @@
 package dbproject.dbdubab;
 
 import dbproject.dbdubab.TimeUtil;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Time;
+
+import java.sql.*;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,13 +17,13 @@ public class PharmacyDAO {
 
     public void findActivePharmaciesNow() throws SQLException {
         String sql = """
-            SELECT p.pharmacy_id, p.name, p.address, p.phone
-              FROM active_pharmacy p
-              JOIN open_hours o
-                ON p.pharmacy_id = o.pharmacy_id
-             WHERE o.day_of_week = ?
-               AND ? BETWEEN o.start_time AND o.end_time
-            """;
+        SELECT p.*
+          FROM active_pharmacy p
+          JOIN open_hours o
+            ON p.pharmacy_id = o.pharmacy_id
+         WHERE o.day_of_week = ?
+           AND ? BETWEEN o.start_time AND o.end_time
+        """;
 
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             String currentDay = TimeUtil.getCurrentDayOfWeekKor();
@@ -36,18 +33,38 @@ public class PharmacyDAO {
             pstmt.setTime(2, currentTime);
 
             try (ResultSet rs = pstmt.executeQuery()) {
+                // 1) 컬럼 헤더를 직접 한국어로 출력
+                System.out.println("약국ID | 이름 | 주소 | 전화 | 우편번호 | 경도 | 위도 | 운영 여부");
+                System.out.println("------------------------------------------------------------");
+
                 while (rs.next()) {
+                    String pharmacyId = rs.getString("pharmacy_id");
+                    String name = rs.getString("name");
+                    String address = rs.getString("address");
+                    String phone = rs.getString("phone");
+                    String zipCode = rs.getString("zip_code");
+                    double longitude = rs.getDouble("longitude");
+                    double latitude = rs.getDouble("latitude");
+                    boolean isOperating = rs.getBoolean("is_operating");
+
+                    String operatingText = isOperating ? "운영" : "미운영";
+
                     System.out.printf(
-                            "약국ID: %s, 이름: %s, 주소: %s, 전화: %s%n",
-                            rs.getString("pharmacy_id"),
-                            rs.getString("name"),
-                            rs.getString("address"),
-                            rs.getString("phone")
+                            "%s | %s | %s | %s | %s | %.6f | %.6f | %s%n",
+                            pharmacyId,
+                            name,
+                            address,
+                            phone,
+                            zipCode,
+                            longitude,
+                            latitude,
+                            operatingText
                     );
                 }
             }
         }
     }
+
 
     // 지역/요일별 운영 약국 수 통계
     // @param minCount: 최소 개수 기준. 기본은 1
@@ -172,7 +189,7 @@ public class PharmacyDAO {
         try (PreparedStatement ps = conn.prepareStatement(sql)) {
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
-                    System.out.printf("약국ID: %s | 이름: %s | 주소: %s | 총 운영시간: %s%n",
+                    System.out.printf("약국ID: %s | 이름: %s | 주소: %s | 총 운영 시간: %s%n",
                             rs.getString("pharmacy_id"),
                             rs.getString("name"),
                             rs.getString("address"),
