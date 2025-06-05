@@ -33,7 +33,6 @@ public class PharmacyDAO {
             pstmt.setTime(2, currentTime);
 
             try (ResultSet rs = pstmt.executeQuery()) {
-                // 1) 컬럼 헤더를 직접 한국어로 출력
                 System.out.println("약국ID | 이름 | 주소 | 전화 | 우편번호 | 경도 | 위도 | 운영 여부");
                 System.out.println("------------------------------------------------------------");
 
@@ -65,13 +64,11 @@ public class PharmacyDAO {
         }
     }
 
-
     // 지역/요일별 운영 약국 수 통계
     // @param minCount: 최소 개수 기준. 기본은 1
     public List<AreaDayStats> countByAreaAndDayWithNames(int minCount) throws SQLException {
         String sql = """
             SELECT
-              -- 1) 세 번째 토큰 뽑기 → 2) 앞 3글자만 취해서 area로
               ANY_VALUE(
                 SUBSTRING_INDEX(
                     SUBSTRING_INDEX(p.address, ' ', 3),
@@ -114,12 +111,18 @@ public class PharmacyDAO {
 
     // 약국 상세 정보 조회
     public void getPharmacyDetails(String pharmacyId) throws SQLException{
-        String sql1 = "SELECT pharmacy_id, name, address, phone, zip_code, longitude, latitude " +
-                "FROM pharmacy WHERE pharmacy_id = ?";
-        String sql2 = "SELECT day_of_week, start_time, end_time " +
-                "FROM open_hours WHERE pharmacy_id = ? " +
-                "ORDER BY FIELD(day_of_week, '월', '화', '수', '목', '금', '토', '일')";
-        String sql3 = "SELECT is_open_sunday, is_open_holiday FROM holiday_schedule WHERE pharmacy_id = ?";
+        String sql1 = """
+        SELECT pharmacy_id, name, address, phone, zip_code, longitude, latitude
+        FROM pharmacy WHERE pharmacy_id = ?
+        """;
+        String sql2 = """
+        SELECT day_of_week, start_time, end_time
+        FROM open_hours WHERE pharmacy_id = ?
+        ORDER BY FIELD(day_of_week, '월', '화', '수', '목', '금', '토', '일')
+        """;
+        String sql3 = """
+        SELECT is_open_sunday, is_open_holiday FROM holiday_schedule WHERE pharmacy_id = ?
+        """;
 
         try (PreparedStatement pstmt = conn.prepareStatement(sql1)) {
             pstmt.setString(1, pharmacyId);
@@ -200,20 +203,21 @@ public class PharmacyDAO {
     }
 
     public void findActivePharmaciesByRegion(String regionKeyword) throws SQLException {
-        String sql = "SELECT p.pharmacy_id, p.name, p.address, p.phone " +
-                "FROM active_pharmacy p " +
-                "JOIN open_hours o ON p.pharmacy_id = o.pharmacy_id " +
-                "WHERE o.day_of_week = ? " +
-                "AND ? BETWEEN o.start_time AND o.end_time " +
-                "AND p.address LIKE ?";
+        String sql = """
+                SELECT p.pharmacy_id, p.name, p.address, p.phone
+                FROM active_pharmacy p
+                JOIN open_hours o ON p.pharmacy_id = o.pharmacy_id
+                WHERE
+                  o.day_of_week = ELT(
+                    WEEKDAY(CURDATE()) + 1,
+                    '월','화','수','목','금','토','일'
+                  )
+                  AND CURTIME() BETWEEN o.start_time AND o.end_time
+                  AND p.address LIKE CONCAT('%', ?, '%')
+            """;
 
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            String currentDay = TimeUtil.getCurrentDayOfWeekKor();
-            Time currentTime = Time.valueOf(LocalTime.now());  // 여기 수정
-
-            pstmt.setString(1, currentDay);
-            pstmt.setTime(2, currentTime);   // String → Time으로 변경
-            pstmt.setString(3, "%" + regionKeyword + "%");
+            pstmt.setString(1, regionKeyword);
 
             try (ResultSet rs = pstmt.executeQuery()) {
                 if (!rs.isBeforeFirst()) {
@@ -222,7 +226,7 @@ public class PharmacyDAO {
                     return;
                 }
 
-                System.out.println("\n운영 중인 약국 목록:");
+                System.out.println("\n현재 '" + regionKeyword + "' 지역에서 운영 중인 약국 목록:");
                 while (rs.next()) {
                     System.out.printf("약국ID: %s | 이름: %s | 주소: %s | 전화: %s%n",
                             rs.getString("pharmacy_id"),
@@ -262,14 +266,16 @@ public class PharmacyDAO {
 
     public void findPharmaciesByOperatingTimeWithRank(String regionKeyword) throws SQLException {
         String sql =
-                "SELECT RANK() OVER (ORDER BY SUM(TIME_TO_SEC(TIMEDIFF(o.end_time, o.start_time))) DESC) AS `rank`, " +
-                        "       p.pharmacy_id, p.name, p.address, p.phone, " +
-                        "       SEC_TO_TIME(SUM(TIME_TO_SEC(TIMEDIFF(o.end_time, o.start_time)))) AS total_operating_time " +
-                        "FROM active_pharmacy p " +
-                        "JOIN open_hours o ON p.pharmacy_id = o.pharmacy_id " +
-                        "WHERE p.address LIKE ? " +
-                        "GROUP BY p.pharmacy_id, p.name, p.address, p.phone " +
-                        "ORDER BY SUM(TIME_TO_SEC(TIMEDIFF(o.end_time, o.start_time))) DESC";
+        """
+        SELECT RANK() OVER (ORDER BY SUM(TIME_TO_SEC(TIMEDIFF(o.end_time, o.start_time))) DESC) AS `rank`
+             , p.pharmacy_id, p.name, p.address, p.phone
+             , SEC_TO_TIME(SUM(TIME_TO_SEC(TIMEDIFF(o.end_time, o.start_time)))) AS total_operating_time
+        FROM active_pharmacy p
+        JOIN open_hours o ON p.pharmacy_id = o.pharmacy_id
+        WHERE p.address LIKE ?
+        GROUP BY p.pharmacy_id, p.name, p.address, p.phone
+        ORDER BY SUM(TIME_TO_SEC(TIMEDIFF(o.end_time, o.start_time))) DESC
+        """;
 
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, "%" + regionKeyword + "%");

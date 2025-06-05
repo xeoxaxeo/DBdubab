@@ -15,31 +15,38 @@ public class RollupManager {
 
     public void showRegionDayRollup() {
         // 'address'에서 '구'를 추출 -> 지역구(서대문구...)로 사용
-        String sql =
-                "SELECT " +
-                "  SUBSTRING_INDEX(SUBSTRING_INDEX(address, ' ', 2), ' ', -1) AS region, " +
-                "  oh.day_of_week, " +
-                "  COUNT(*) AS pharmacy_count " +
-                "FROM pharmacy p " +
-                "JOIN open_hours oh ON p.pharmacy_id = oh.pharmacy_id " +
-                "GROUP BY region, oh.day_of_week WITH ROLLUP " +
-                "ORDER BY " +
-                "  region IS NULL, region, " +
-                "  (oh.day_of_week IS NULL), " +
-                "  FIELD(oh.day_of_week, '월','화','수','목','금','토','일')";
-
+        String sql = """
+                SELECT
+                  region,
+                  day_of_week,
+                  pharmacy_count
+                FROM (
+                  SELECT
+                    COALESCE(
+                      SUBSTRING_INDEX(SUBSTRING_INDEX(address, ' ', 2), ' ', -1),
+                      '전체'
+                    ) AS region,
+                    COALESCE(oh.day_of_week, '전체') AS day_of_week,
+                    COUNT(*) AS pharmacy_count
+                  FROM pharmacy p
+                  JOIN open_hours oh ON p.pharmacy_id = oh.pharmacy_id
+                  GROUP BY region, day_of_week WITH ROLLUP
+                ) AS sub
+                WHERE region = '서대문구'
+                ORDER BY
+                  FIELD(day_of_week, '월','화','수','목','금','토','일','전체')
+                """;
 
         try (PreparedStatement pstmt = conn.prepareStatement(sql);
              ResultSet rs = pstmt.executeQuery()) {
+
             System.out.println("지역\t요일\t약국 수");
             while (rs.next()) {
-                String region = rs.getString("region");
-                String dayOfWeek = rs.getString("day_of_week");
-                int count = rs.getInt("pharmacy_count");
+                String region      = rs.getString("region");
+                String dayOfWeek   = rs.getString("day_of_week");
+                int pharmacyCount  = rs.getInt("pharmacy_count");
 
-                if (region == null) region = "전체";
-                if (dayOfWeek == null) dayOfWeek = "전체";
-                System.out.printf("%s\t%s\t%d\n", region, dayOfWeek, count);
+                System.out.printf("%s\t%s\t%d%n", region, dayOfWeek, pharmacyCount);
             }
         } catch (SQLException e) {
             e.printStackTrace();
