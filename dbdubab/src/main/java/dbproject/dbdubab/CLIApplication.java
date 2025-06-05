@@ -151,7 +151,14 @@ public class CLIApplication {
                     }
                     new PharmacyManager(conn).deletePharmacy(args[1]);
                 }
-                    
+                case "openat" -> {
+                    if (args.length != 3) {
+                        System.out.println("Usage: openat <요일> <시간(HH:MM)>");
+                        return;
+                    }
+                    new PharmacyDAO(conn).showOpenPharmaciesAt(args[1], args[2]);
+                    break;
+                }
                 default -> {
                     System.err.println("지정되지 않은 action: " + action);
                     printUsage();
@@ -166,12 +173,13 @@ public class CLIApplication {
     private static void printUsage() {
         System.out.println("Usage: java -jar DBdubab.jar <action> [parameters]");
         System.out.println("  active               → 운영 중인 약국 조회");
+        System.out.println("  openat <요일> <시간(HH:MM)>  → 지정한 시간에 운영 중인 약국 조회");
         System.out.println("  stats [minCount]     → 지역/요일별 약국 수 통계 (HAVING COUNT ≥ minCount)");
         System.out.println("  regionActive <region> → 지정 지역 운영 약국 조회 (없으면 편의점 목록 출력)");
         System.out.println("  operatingRank <region> → 운영시간 순위 조회");
         System.out.println("  detail <pharmacyId>  → 약국 상세 정보 조회");
         System.out.println("  longhours            → 평균 운영시간보다 긴 약국 조회");
-        System.out.println("  rollup               → [ 지역+요일 ] 다차원 집계");
+        System.out.println("  rollup               → [지역+요일] 다차원 집계");
         System.out.println("  emergency-insert     → 응급약국 등록");
         System.out.println("  emergency-update     → 응급약국 수정");
         System.out.println("  emergency-delete     → 응급약국 삭제");

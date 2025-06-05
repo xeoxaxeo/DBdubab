@@ -271,4 +271,32 @@ public class PharmacyDAO {
             }
         }
     }
+    public void showOpenPharmaciesAt(String day, String time) throws SQLException {
+        String query = """
+        SELECT p.pharmacy_id, p.name, p.address, p.phone
+        FROM active_pharmacy p
+        JOIN open_hours o ON p.pharmacy_id = o.pharmacy_id
+        WHERE o.day_of_week = ? AND TIME(?) BETWEEN o.start_time AND o.end_time
+    """;
+
+        try (PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setString(1, day);
+            pstmt.setString(2, time);
+
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (!rs.isBeforeFirst()) {
+                    System.out.println("해당 시간에 운영 중인 약국이 없습니다.");
+                    return;
+                }
+                System.out.println("\n운영 중인 약국 목록:");
+                while (rs.next()) {
+                    System.out.printf("약국ID: %s | 이름: %s | 주소: %s | 전화: %s%n",
+                            rs.getString("pharmacy_id"),
+                            rs.getString("name"),
+                            rs.getString("address"),
+                            rs.getString("phone"));
+                }
+            }
+        }
+    }
 }
