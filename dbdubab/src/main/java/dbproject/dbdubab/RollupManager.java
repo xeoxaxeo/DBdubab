@@ -16,17 +16,18 @@ public class RollupManager {
     public void showRegionDayRollup() {
         // 'address'에서 '구'를 추출 -> 지역구(서대문구...)로 사용
         String sql =
-            "SELECT " +
-            "  SUBSTRING_INDEX(SUBSTRING_INDEX(address, ' ', 2), ' ', -1) AS region, " +
-            "  oh.day_of_week, " +
-            "  COUNT(*) AS pharmacy_count " +
-            "FROM pharmacy p " +
-            "JOIN open_hours oh ON p.pharmacy_id = oh.pharmacy_id " +
-            "GROUP BY ROLLUP(region, oh.day_of_week) " +
-            "ORDER BY " +
-            "  region IS NULL, region, " +
-            "  (oh.day_of_week IS NULL), " +
-            "  FIELD(oh.day_of_week, '월', '화', '수', '목', '금', '토', '일')";
+                "SELECT " +
+                "  SUBSTRING_INDEX(SUBSTRING_INDEX(address, ' ', 2), ' ', -1) AS region, " +
+                "  oh.day_of_week, " +
+                "  COUNT(*) AS pharmacy_count " +
+                "FROM pharmacy p " +
+                "JOIN open_hours oh ON p.pharmacy_id = oh.pharmacy_id " +
+                "GROUP BY region, oh.day_of_week WITH ROLLUP " +
+                "ORDER BY " +
+                "  region IS NULL, region, " +
+                "  (oh.day_of_week IS NULL), " +
+                "  FIELD(oh.day_of_week, '월','화','수','목','금','토','일')";
+
 
         try (PreparedStatement pstmt = conn.prepareStatement(sql);
              ResultSet rs = pstmt.executeQuery()) {
